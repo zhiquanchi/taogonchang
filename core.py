@@ -84,6 +84,7 @@ class Base(object):
         self.data_save_path = os.path.join(self.data_save_dir, f'{self.platform}_'
                                                                f'{time.strftime("%Y-%m-%d_%H_%M_%S")}.json')
         os.makedirs(self.cookie_dir, exist_ok=True)
+        os.makedirs(self.data_save_dir, exist_ok=True)
 
     def save_cookie(self, cookie_str):
         """
@@ -399,7 +400,7 @@ class TaoGongChang(Base):
                 order_list.extend(item.get('detailOrders'))
         run_function = lambda x, y: x if y in x else x+[y]
         order_list = reduce(run_function, [[], ]+order_list)
-        with open(self.data_save_path, encoding='utf8', mode='w') as f:
+        with open(self.data_save_path, encoding='utf8', mode='w+') as f:
             json.dump(order_list, f, ensure_ascii=False)
         return order_list
 

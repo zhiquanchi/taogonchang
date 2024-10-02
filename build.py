@@ -5,7 +5,7 @@
 import json
 import os
 import traceback
-from distutils.core import setup
+from setuptools import setup
 from shutil import copyfile, rmtree
 from uuid import uuid4
 
