@@ -409,13 +409,18 @@ class TaoGongChang(Base):
 
         :return:
         """
-        url = 'https://tgc.tmall.com/ds/api/v1/o/qOsi'
+
+        url = 'https://tgc.tmall.com/ds/api/v1/o/qOsiWithRecord'
         param = {"mainOrderId": mainOrderId, "infoKeys": ["buyerNick", "fullName", "mobilephone", "fullAddress"]}
         rep = requests.post(url, json=param, headers=self.header)
         result = rep.json()
+
+
         if result.get('success'):
+            logger.info(f'隐私信息{mainOrderId}: {result.get("data")}')
             return True, result.get('data')
-        return False, {}
+        # return False, {}
+        return  False,result
 
     def login(self):
         """

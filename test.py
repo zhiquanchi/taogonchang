@@ -23,7 +23,7 @@ header = {
     'bx-v': '2.2.2',
     'cache-control': 'no-cache',
     'content-type': 'application/json;charset=UTF-8',
-    'cookie': 'isg=BKKiHm4ENBBBmijMp_Lb5qT58ygE86YNAOF3U-w7xZXAv0I51IExHFo97_tDrx6l; tfstk=cD55B-x300mSKrrX0La4LB5NrVRGZwg6R8tlPo4dcsGYgn75i_lwfmkGKDdeJE1..; l=eB_xNpImL7RudKr2BOfZourza77TjIRAguPzaNbMiOCPO7fw5MmlW6xI2rLeCnGVhs1kR3oSoXzWBeYBqIfYLsbr42FJXhMmn; X-XSRF-TOKEN=b0b5879c-43d2-429c-8fc0-8da151558de8; SCMBIZTYPE=176000; SCMSESSID=1d73bed2af1f78ed227ecbdaab1f8a99@HAVANA; cookie17=UUpgR1XIK6lQS2vrBQ%3D%3D; _nk_=scm09620215; SCMLOCALE=zh-cn; uc3=nk2=EF2TYziLgGExNCs%3D&lg2=V32FPkk%2Fw0dUvg%3D%3D&vt3=F8dCv4GxOwITPc80CIE%3D&id2=UUpgR1XIK6lQS2vrBQ%3D%3D; xlly_s=1; _tb_token_=96b613d1d1f1; uc4=id4=0%40U2gqyOiLaxMX6umQUmlDNZLOALUOFRet&nk4=0%40EoTGj1Z%2B2%2FffunOpCnbotEXVT7L0ew%3D%3D; cookie2=1d73bed2af1f78ed227ecbdaab1f8a99; csg=237b5ddf; t=da2eb272c88bef428a82acbd13b6ad8b; lid=scm09620215; XSRF-TOKEN=8b1658c2-803d-46da-9e7f-a896dbca2ffa; tracknick=scm09620215; sgcookie=E100BrnqLOZ%2BDv8QWYjLUUVwndrnemFjbku5yybcQ4M9GnUP%2FpFgohSQCGgXm4ltPOfaVmBK%2BLEg%2BuM4lBijce%2FfHbFcmZLhsnXg0IIpbpx1by0%3D; lgc=scm09620215; cna=WKl0Gy/QpgQCAbfvnGKQllUw',
+    'cookie': 'tfstk=gaZ-Ei2yLsfoNb92YB_m-s8pd960vkerG7y6xXckRSFYQ5roRX2ov9FqiucuE0MKOjwCU7XrVXtQLJi3ETu3MWeL1zD3F8mLJWVarWeFUvGQOWh3rZjgU8oEA1mdjG2yOekCFunBt-wyrHB9kGjgU89oFO2fj9rSw0lZODgSRnOjgvKWAWGWGtHIKQTBVWwfHjkpFYtWPE9jBYHSADNQhtHEpQsZiBM2vyoMaQFMWjxBAoH-PZ2SGHM4DY3-18ZJAH9Ze4h_Fj1grskjlJuLYp-KN8aaTANWNsl3S-qSkDQMTXU3Fuq-Yp8YH2Eu82EPCClTP-EKq7C98fauhmGzP6YSNuyiDygAFgwx2bFaV7IOG5gTqyuL4OOZ6zwYv0qRKUkzl7ox3kf2VXUbRu0rYQ1qtP20Vqn147ZgXkkesfHHytBv8euS38eS5UIYG-frHfX5se8EJfkxstBv8euS3xhGeu8e82hN.; XSRF-TOKEN=e64f22a0-0a1b-4bc3-bb88-dded40bd7514; isg=BIaGbcU9HG0unsgJc2jHe7W113wI58qh2HVXyHCvcqmEcyaN2HcasWwDT6-_W8K5; X-XSRF-TOKEN=18473dc5-1978-4c33-b144-36b791b951f8; SCMBIZTYPE=176000; SCMSESSID=1d9e7855b2d1e1f23b3d29ff80da20a3@HAVANA; xlly_s=1; SCMLOCALE=zh-cn; _nk_=scm326950456; t=3345f427b7b18bf599d4b080bb940c32; locale=zh-cn; _tb_token_=7d1133b7970e3; cookie2=1d9e7855b2d1e1f23b3d29ff80da20a3; lgc=; csg=60f2681b; sgcookie=E100iO48Fo6H34N%2FtmhGrDfXj2f7BuYksZMUnt8xC6zD006mCXzXHFoAWRFMyJRsol77JS2akGjcVIjLv6BPSHn8PaCwQMg61JwYUaLQZqBrepE%3D; cookie17=UUpgTs0ylXKCyUqjpg%3D%3D; sn=; dnk=',
     'origin': 'https://tgc.tmall.com',
     'pragma': 'no-cache',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 ' \
@@ -67,8 +67,8 @@ def request_download_big_file(request_kwargs, local_path, ):
 
 
 def get_qOsi(mainOrder):
-    url = 'https://tgc.tmall.com/ds/api/v1/o/qOsi'
-    param = {"mainOrderId": '2802160872802626426', "infoKeys": ["buyerNick", "fullName", "mobilephone", "fullAddress"]}
+    url = 'https://tgc.tmall.com/ds/api/v1/o/qOsiWithRecord'
+    param = {"mainOrderId": '4064869116030936839', "infoKeys": ["buyerNick", "fullName", "mobilephone", "fullAddress"]}
     rep = requests.post(url, json=param, headers=header)
     result = rep.json()
 
@@ -199,5 +199,5 @@ if __name__ == '__main__':
     # a = get_order()
     # save_data(a)
     # print(len(a))
-    # print(get_qOsi(''))
-    get_order()
+    print(get_qOsi(''))
+    # get_order()
